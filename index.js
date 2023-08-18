@@ -6,11 +6,14 @@ const { getIO, initIO } = require('./socket');
 
 const app = express();
 
-app.use('/', express.static(path.join(__dirname, 'static')));
+
+app.get("/",(req,res) => {
+    res.send("hello");
+})
 
 const httpServer = createServer(app);
 
-let port = process.env.PORT || 3500;
+let port = process.env.PORT || 443;
 
 initIO(httpServer);
 
